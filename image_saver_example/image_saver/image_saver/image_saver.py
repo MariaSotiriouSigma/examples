@@ -34,7 +34,7 @@ class ImageSaver(Node):
 
     def check_range(self, msg):
         distance = msg.range
-        if distance >= 0.2:
+        if distance <= 0.2:
             self.move_forward()
         else:
             self.stop()
@@ -60,12 +60,11 @@ class ImageSaver(Node):
         wheel_msg.vel_right = vel_right
         self.wheels_pub.publish(wheel_msg)
 
-    def analyse_the_image(self):  # scan the surroundings for the road,
-        width, height = 640, 480  # then find the direction in which the road lies
-        img = cv2.imread(
-            f"{self.output_dir}/{self.counter // 5 * 5}.jpg")  # and change the velocities of the wheels to go to the road
-        RANGE = 50  # it does not change the velocities of the wheels yet
-
+    def analyse_the_image(self):  # scan the surroundings for the road, 
+        width,height = 640, 480   # then find the direction in which the road lies 
+        img = cv2.imread(f"{self.output_dir}{self.counter}.jpg") # and change the velocities of the wheels to go to the road
+        RANGE = 50                     # it does not change the velocities of the wheels yet
+        
         self.high_contrast(img)
 
         # yellow = [255, 255, 0]
