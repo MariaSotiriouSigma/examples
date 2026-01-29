@@ -66,7 +66,7 @@ class ImageSaver(Node):
         self.wheels_pub.publish(wheel_msg)
 
     def analyse_the_image(self,img):  # scan the surroundings for the road, 
-        self.get_logger().info(f'got to analyse the image {img}')
+        #self.get_logger().info(f'got to analyse the image {img}')
         #if self.obstacle_detected_detected: # supposed fix, temporary added
         #    self.stop()
         #    return
@@ -140,7 +140,7 @@ class ImageSaver(Node):
 
 
     def high_contrast(self,img): # make the surroundings contrasting, so road will be identified easier
-        self.get_logger().info(f'We got to high contrast with the image {img}')
+        #self.get_logger().info(f'We got to high contrast with the image {img}')
         width,height = 640, 480
         basic_colours = [[0, 254, 255],[0,0,0],[255,255,255],[255,0,0]] # BGR format --- yellow, black, white
         #(255, 0, 0),(0, 255, 0),(0,0,255) --- blue, green, red
